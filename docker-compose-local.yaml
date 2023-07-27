@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  db:
+    container_name: "postgres"
+    image: postgres:15.3-alpine
+    restart: always
+    environment:
+      - POSTGRES_USE=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - custom
+
+networks:
+  custom:
+    driver: bridge
